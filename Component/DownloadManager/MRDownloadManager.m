@@ -67,7 +67,7 @@ static MRDownloadManager *sharedInstance = nil;
     for (MROperation* op in self.downloadQueue.operations) {
         if ([operation isEqual:op]) {
             [operation cancel];
-            return;
+            break;
         }
     }
 }
@@ -76,7 +76,6 @@ static MRDownloadManager *sharedInstance = nil;
     //Make sure, Our operation should removed from Queue
     for (MROperation* op in self.downloadQueue.operations) {
         [op cancel];
-        return;
     }
 }
 @end
